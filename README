@@ -1,0 +1,39 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2870
+
+ 12 "   This plugin can help you to maintenance tags file.
+ 13 "
+ 14 "   There are 3 commands:
+ 15 "
+ 16 "     1. :OmniTagsLoad /path/to/tags-file
+ 17 "
+ 18 "     Load the tags-file and generate a list of source files indexed by
+ 19 "     tags-file.
+ 20 "
+ 21 "     If tags-file doesn't exist, it can create a null file automaticlly.
+ 22 "
+ 23 "     Once tags-file are loaded, every buffer-write event will trigger a
+ 24 "     re-index operation on current file if current file exists in tags-file.
+ 25 "
+ 26 "     The re-index operation will do:
+ 27 "       a) delete tags of current file from tags-file.
+ 28 "       b) call "ctags -a" command add the tags of current file to tags-file.
+ 29 "
+ 30 "     Therefor, your tags-file will always updated.
+ 31 "
+ 32 "     Don't mind the speed of re-index operation, it is indetectable while
+ 33 "     the tags-file size small than 20MiB.
+ 34 "
+ 35 "     2. :OmniTagsUpdate {file1} {file2} ...
+ 36 "
+ 37 "     Update the tags-file loaded before, you can specify many files and use
+ 38 "     wildcards(see ":h wildcards"), "wildignore" option(see "h: wildignore")
+ 39 "     also influences the result of wildcards parsing.
+ 40 "
+ 41 "     If files are not in tags yet, the plugin will add those files to tags,
+ 42 "     if files already exists, the plugin will update them.
+ 43 "
+ 44 "     You can specify no files, for re-index all files that already indexed.
+ 45 "
+ 46 "     3. :OmniTagsUnload
+ 47 "
+ 48 "     Just an oppsite of :OmniTagsLoad, usually needs not be called by human.
